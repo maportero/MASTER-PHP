@@ -1,0 +1,159 @@
+form .avatar {
+    display: block;
+    margin-bottom: 15px;
+    width: 55px;
+    
+}
+
+.navbar .container-avatar,
+.pub_image .container-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 900px;
+    overflow: hidden;
+    margin-left: 20px;
+    
+}
+
+
+.navbar .container-avatar img,
+.pub_image .container-avatar img{
+
+    height: 100%;
+
+
+    
+}
+
+.pub_image{
+    margin-bottom: 25px;
+}
+
+.pub_image .container-avatar {
+    float: left;
+    margin-right: 15px;
+
+}
+
+.pub_image .data-user {
+    line-height: 35px;
+    font-weight: bold;
+}
+
+.pub_image .data-user a {
+    color: gray;
+}
+.image-detail .comments {
+    padding: 20px;
+}
+
+.pub_image .nickname{
+    color: gray;
+}
+
+.image-container{
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    
+}
+.image-detail{
+    width: 100%;
+    max-height: 500px;
+    
+    
+}
+
+.image-container img{
+    
+    width: 100%;
+    height: 100%;
+    
+    
+}
+
+.pub_image .card-body {
+    
+    padding: 0px;
+}
+
+.pub_image .image-description {
+    
+    padding: 20px;
+    padding-bottom: 0px;
+    padding-top: 10px; 
+}
+
+
+.pub_image  .btn-comments{
+    margin: 20px;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+.pub_image  .likes{
+    height: 20px;
+    width:  20px;
+    margin: 20px;
+    margin-top: 5px;
+    margin-right: 0px;
+    float: left;
+}
+.pub_image  .count-likes{
+    
+    margin-top: 15px;
+    margin-right: 15px;
+    float: left;
+    color:gray;
+}
+
+.pub_image  .likes img{
+    height: 100%;
+    width:  100%;
+    
+
+}
+
+.profile-user{
+    
+    margin-bottom: 0px;
+    
+    
+}
+
+.profile-user .container-avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 900px;
+    overflow : hidden;
+    float: left;
+    
+}
+
+.profile-user .container-avatar img{
+    width: 100%;
+    height: 100%;
+    margin-rigth: 40px;
+}
+
+.profile-user .user-info{
+    float: left;
+    padding: 50px;
+    
+    
+}
+.profile-user hr{
+  padding: 0;
+  margin-top: 0
+    
+    
+}
+.pub_image  .actions{
+    margin-top: 5px;
+    float: left;
+    
+}
+.btn-search{
+    padding-left: 0px;
+    margin-left: 0px;
+}

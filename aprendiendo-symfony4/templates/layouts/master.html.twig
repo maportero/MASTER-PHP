@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block titulo %}Inicio{% endblock%} - Master-PHP Marco Portero</title>
+    </head>
+    <body>
+        <div id="header">
+
+            {% block cabecera %}
+                <h1>Cabecera de la plantilla</h1>
+            {% endblock %}
+
+        </div>
+        <section id="content">
+
+            {% block contenido %}
+                <p>Contenido de la plantilla</p>
+            {% endblock %}
+
+        </section>
+        <footer i="footer">
+            {% block pieDePagina %}
+                <h1>Pie de pagina de la plantilla</h1>
+            {% endblock %}
+        </footer>
+
+    </body>
+</html>

@@ -1,0 +1,44 @@
+index:
+    path: /inicio
+    controller: App\Controller\HomeController::index
+
+animales:
+    path: /animales/{nombre}/{apellido}
+    controller: App\Controller\HomeController::animales
+    defaults: { nombre: 'Leonardo', apellido: 'Portero'}
+    methods: [POST,GET]
+    requirements: 
+        nombre: '[a-zA-Z ]+'
+        apellido: '[0-9a-zA-Z ]+'
+redirigir:
+    path: /redirigir
+    controller: App\Controller\HomeController::redirigir
+    
+animal_index:
+    path: /animal
+    controller: App\Controller\AnimalController::index
+    
+animal_save:
+    path: /save
+    controller: App\Controller\AnimalController::save
+    methods: "POST"
+    
+animal_find:
+    path: /find/{id}
+    controller: App\Controller\AnimalController::animal
+    
+animal_update:
+    path: /update/{id}
+    controller: App\Controller\AnimalController::update
+
+animal_delete:
+    path: /delete/{id}
+    controller: App\Controller\AnimalController::delete
+    
+animal_crear:
+    path: /crear-animal
+    controller: App\Controller\AnimalController::crearAnimal
+    
+validar_email:
+    path: /validar-email/{email}
+    controller: App\Controller\AnimalController::validarEmail

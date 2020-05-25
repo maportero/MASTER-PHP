@@ -1,0 +1,18 @@
+    {# FUNCIONES #}
+  <h1>Funciones</h1>
+    
+    {{ min([4,6,73,2,1])}} <br>
+    
+    {{ random(animales)}} <br>
+    
+    
+    {% for i in range(0,500, iteraccion) %}
+        {{i}}<br>
+            
+    {%endfor%}
+    
+    <h1>Extensiones personalizadas</h1>
+    
+    {{ multiplicar(4)|raw }}
+    
+    {{ 156|multiplicar|raw}}

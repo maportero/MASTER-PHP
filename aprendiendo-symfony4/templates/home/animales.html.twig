@@ -1,0 +1,85 @@
+{% extends 'layouts/master.html.twig' %}
+
+{% block titulo %}Animales{% endblock %}
+
+{% block cabecera %}
+    {{parent()}}
+    <h1>Listado de Animales</h1>
+    
+{%endblock%}
+
+{% block contenido %}
+    <hr>
+    {#
+    <div class="example-wrapper">
+        <h1>{{ title  }}</h1>
+        <h2>Tu nombre es: {{nombre}} {{apellido}}</h2>
+    </div>
+    #}
+    {# DEFINICION DE VARIABLES #}
+    
+    {% set perro = 'Pastor Aleman' %}
+    
+    <h4>{{perro}}</h4>
+    
+    {# MANEJO DE ARREGLOS #}
+    
+    {{ dump(animales)}}
+    
+    {{ animales[3]}}
+    
+    {# Arreglos Asociativos #}
+    
+    {{ dump(aves)}}
+    
+    {{ aves['tipo']}}</br>
+    
+    {{ aves.habitad ~ ' - ' ~ aves.anios }}</br>
+    
+    
+    {# Estructuras de control#}
+    
+    {% if aves.tipo == 'aguila' %}
+        <h3> Es un aguila</h3>        
+
+    {% else %}
+        <h3> No es un aguila</h3> 
+    {% endif %}
+    
+    </br>
+    
+    
+    {# Bucles#}
+    
+    {% if animales|length >=1 %}
+        
+        <ul>
+            {% for animal in animales %}
+                <li>
+                    {{animal}}
+                </li>
+                
+            {%endfor%}
+        </ul>
+        
+    {% endif %}
+    
+    {%for i in 0..10%}
+        {{i}}</br>
+    {%endfor%}
+    
+    {% if aves.tipo starts with 'ag' %}
+        <h3> Empieza por ag</h3>        
+
+    {% else %}
+        <h3> No empieza por ag</h3> 
+    {% endif %}
+
+    {{ include('partials/funciones.html.twig',{'iteraccion':20})}}    
+
+    <hr>
+    
+    
+    
+ {%endblock%}
+
