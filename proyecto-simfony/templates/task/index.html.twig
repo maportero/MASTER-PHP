@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenido!!!{% endblock %}
+
+{% block body %}
+
+<div class="second detail">
+            <div class="row justify-content-center">
+
+            <div class="col-md-12">
+                <div class="card">
+                    {% for message in app.session.flashbag().get('message') %}  
+                        <div class="alert alert-success">
+                            {{message}}
+                        </div>
+                    {%endfor%}
+                    <div class="card-header">Todas las tareas</div>
+                    <div class="card-body">
+                           {{ include("includes/tasklist.html.twig") }}
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Task
@@ -25,6 +26,7 @@ class Task
      * @var string|null
      *
      * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     * @Assert\NotBlank
      */
     private $title;
 
@@ -32,6 +34,8 @@ class Task
      * @var string|null
      *
      * @ORM\Column(name="content", type="text", length=65535, nullable=true)
+     * @Assert\NotBlank
+     * 
      */
     private $content;
 
@@ -39,6 +43,8 @@ class Task
      * @var string|null
      *
      * @ORM\Column(name="priority", type="string", length=50, nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Regex("/[a-zA-z]+/")
      */
     private $priority;
 
@@ -46,6 +52,8 @@ class Task
      * @var int|null
      *
      * @ORM\Column(name="hours", type="integer", nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Regex("/[0-9]+/")
      */
     private $hours;
 
@@ -59,7 +67,7 @@ class Task
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy("tasks"))
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="tasks")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })

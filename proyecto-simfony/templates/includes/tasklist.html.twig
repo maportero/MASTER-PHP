@@ -1,0 +1,44 @@
+{% if tasks|length > 0 %}
+<table>
+    <tr>
+        <th>Usuario
+        </th>
+        <th>Tarea
+        </th>
+        <th>Prioridad
+        </th>
+        <th>Horas presupuestadas
+        </th>
+        <th class="th-action">Acciones
+        </th>
+    </tr>
+    {% for task in tasks %}
+        <tr>
+            <td>
+                {{ task.user.name ~ ', ' ~ task.user.surname}}
+            </td>
+            <td>
+                {{ task.title }}
+            </td>
+            <td>
+                {{ task.priority }}
+            </td>
+            <td>
+                {{ task.hours }}
+            </td>
+            <td>
+                <a href="{{ path("task_detail", {"id":task.id})}} " class="btn btn-sm btn-info">Ver</a> 
+                {% if app.user != null and task.user.id == app.user.id %}
+                    <a href="{{ path('task_edit', {"id":task.id} )}}" class="btn btn-sm btn-success">Editar</a> 
+                    <a href="{{ path('task_delete', {"id":task.id} )}}" class="btn btn-sm btn-danger">Eliminar</a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+
+</table>
+{% else %}
+    <div class="alert alert-success">
+        No hay tareas para mostrar
+    </div>
+{% endif %}

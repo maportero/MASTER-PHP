@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -12,7 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="users")
  * @ORM\Entity
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -34,6 +36,8 @@ class User
      * @var string|null
      *
      * @ORM\Column(name="name", type="string", length=100, nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Regex("/[a-zA-z ]+/")
      */
     private $name;
 
@@ -41,6 +45,9 @@ class User
      * @var string|null
      *
      * @ORM\Column(name="surname", type="string", length=200, nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Regex("/[a-zA-z ]+/")
+     * 
      */
     private $surname;
 
@@ -48,6 +55,11 @@ class User
      * @var string|null
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Email(
+     *      message = "Ël email '{{ value }}' no es válido",
+     *      checkMX = true
+     * ) 
      */
     private $email;
 
@@ -55,6 +67,8 @@ class User
      * @var string|null
      *
      * @ORM\Column(name="password", type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     * 
      */
     private $password;
     
@@ -63,12 +77,13 @@ class User
      * @var \DateTime|null
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     * 
      */
     private $createdAt;
     
     
     /**
-     * @ORM\oneToMany(targetEntity="App\Entity\Task", mappedBY="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user")
      */
     private $tasks;
     
@@ -155,6 +170,52 @@ class User
 
         return $this;
     }
+
+    /**
+     * @return Collection|Task[]
+     */
+    public function getTasks(): Collection
+    {
+        return $this->tasks;
+    }
+
+    public function addTask(Task $task): self
+    {
+        if (!$this->tasks->contains($task)) {
+            $this->tasks[] = $task;
+            $task->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTask(Task $task): self
+    {
+        if ($this->tasks->contains($task)) {
+            $this->tasks->removeElement($task);
+            // set the owning side to null (unless already changed)
+            if ($task->getUser() === $this) {
+                $task->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+    
+    public function getUsername(){
+        return $this->email;;
+    }
+    
+    public function getSalt(){
+        return null;
+    }
+    
+    public function getRoles(){
+        return array('ROLE_USER');
+        
+    }
+    
+    public function eraseCredentials(){}
 
 
 }

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% if edit is defined %}
+    {% set titulo ="Edición de tareas" %}
+{% else %}
+    {% set titulo ="Creación de tareas" %}
+{% endif %} 
+
+{% block title %}{{titulo}}{% endblock %}
+
+{% block body %}
+
+    <div class="second">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+
+                    {% for message in app.session.flashbag().get('message') %}  
+                        <div class="alert alert-success">
+                            {{message}}
+                        </div>
+                    {%endfor%}
+                    {% if edit is defined %}
+                    <div class="card-header">Modificar Tarea</div>
+                    {% else %}
+                        <div class="card-header">Crear Tarea</div>
+                    {% endif %}    
+                    <div class="card-body">
+                        {{form_start(form)}}
+                        {{form_widget(form)}}
+                        {{form_end(form)}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

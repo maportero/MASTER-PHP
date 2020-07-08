@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mis tareas!{% endblock %}
+
+{% block body %}
+
+<div class="second detail">
+            <div class="row justify-content-center">
+
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header">Todas mis tareas</div>
+                    <div class="card-body">
+                        {{ include("includes/tasklist.html.twig") }}
+                    </div>
+                </div>
+            </div>    
+            </div>
+</div>
+{% endblock %}

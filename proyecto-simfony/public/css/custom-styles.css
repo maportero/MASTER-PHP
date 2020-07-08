@@ -1,0 +1,75 @@
+.main {
+    margin: 0px;
+    backface-visibility: red;
+}
+.example-wrapper { 
+    margin: 1em auto; 
+    max-width: 800px; 
+    width: 95%; 
+    font: 18px/1.5 sans-serif; 
+}
+.example-wrapper code { 
+  background: #F5F5F5; 
+  padding: 2px 6px; 
+}
+
+
+.menu-principal {
+    margin-left: 125px;
+    
+}
+label{
+    display: block;
+}
+
+
+
+.second {
+    
+    margin-top: 20px;
+    margin-left: 140px;
+    max-width: 800px;
+}
+
+.detail {
+    
+    
+    max-width: 860px;
+}
+table {
+    width: 100% 
+}
+
+table th,
+table td{
+    font-size: 13px;
+    background: #f6f6f6;
+    padding: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-bottom: 1px solid #eee;
+    text-align: center;   
+    
+}
+
+.th-action{
+    
+    width: 216px;
+}
+
+
+table td{
+    background: #ccffff;
+    
+}
+
+
+
+.right {
+    
+    float: right !important;
+}
+
+.data-task{
+    color: gray;
+}
